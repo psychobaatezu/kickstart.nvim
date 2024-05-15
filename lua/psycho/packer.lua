@@ -13,10 +13,12 @@ return require('packer').startup(function(use)
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
-  use {
-    "rose-pine/neovim",
-    as = "rose-pine"
-  }
+  -- use {
+  -- 		"rose-pine/neovim",
+  -- 	as = "rose-pine"
+  -- }
+
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   use { 'nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' } }
   use { 'nvim-treesitter/playground' }
@@ -44,6 +46,22 @@ return require('packer').startup(function(use)
       -- Snippets
       { 'L3MON4D3/LuaSnip' },
       { 'rafamadriz/friendly-snippets' },
+    }
+  }
+
+  use { 'mfussenegger/nvim-dap' }
+  use {
+    'jay-babu/mason-nvim-dap.nvim',
+    requires = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap"
+    },
+  }
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      'mfussenegger/nvim-dap',
+      'nvim-neotest/nvim-nio'
     }
   }
 end)
