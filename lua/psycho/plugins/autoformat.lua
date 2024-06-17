@@ -26,6 +26,12 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        c = { 'clang-format' },
+        cpp = { 'clang-format' },
+        objc = { 'clang-format' },
+        objcpp = { 'clang-format' },
+        cuda = { 'clang-format' },
+        proto = { 'clang-format' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --

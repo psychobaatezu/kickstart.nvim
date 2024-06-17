@@ -136,6 +136,13 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
             end, '[T]oggle Inlay [H]ints')
           end
+
+          -- The following autocommand is used to map specific keymaps
+          -- to a language server type
+          if client and client.name == 'clangd' then
+            map('<leader>rp', '<cmd>wa | make run && ./run<CR>', '[R]un [P]rogram')
+            map('<leader>rt', '<cmd>wa | make test && ./debug/test/test<CR>', '[R]un [T]ests')
+          end
         end,
       })
 

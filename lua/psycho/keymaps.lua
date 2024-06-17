@@ -57,4 +57,8 @@ vim.keymap.set('n', '<leader>Y', [["+Y]])
 
 vim.keymap.set('n', 'J', 'mzJ`z')
 
+-- Indent without leaving visual mode
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')
+
 return {}
