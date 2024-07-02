@@ -141,7 +141,10 @@ return {
           -- to a language server type
           if client and client.name == 'clangd' then
             map('<leader>rp', '<cmd>wa | make run && ./run<CR>', '[R]un [P]rogram')
-            map('<leader>rt', '<cmd>wa | make test && ./debug/test/test<CR>', '[R]un [T]ests')
+            map('<leader>rt', '<cmd>wa | make test && ./test/test<CR>', '[R]un [T]ests')
+          elseif client and client.name == 'tsserver' then
+            map('<leader>rp', '<cmd>wa | !npx prettier -w ./src/**/*.tsx<CR>', '[R]un [P]rogram')
+            map('<leader>rt', '<cmd>wa | !npx prettier -w ./src/**/*.tsx<CR>', '[R]un [T]ests')
           end
         end,
       })
