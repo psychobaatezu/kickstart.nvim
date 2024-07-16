@@ -145,6 +145,8 @@ return {
           elseif client and client.name == 'tsserver' then
             map('<leader>rp', '<cmd>wa | !npx prettier -w ./src/**/*.tsx<CR>', '[R]un [P]rogram')
             map('<leader>rt', '<cmd>wa | !npx prettier -w ./src/**/*.tsx<CR>', '[R]un [T]ests')
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
           end
         end,
       })
