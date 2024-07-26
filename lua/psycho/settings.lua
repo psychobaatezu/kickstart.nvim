@@ -73,8 +73,4 @@ vim.opt.termguicolors = true
 
 vim.opt.colorcolumn = '100'
 
--- Set comment color
-vim.api.nvim_set_hl(0, 'Comment', { fg = '#FF0000' })
-vim.api.nvim_set_hl(0, '@comment', { link = 'Comment' })
-
 return {}

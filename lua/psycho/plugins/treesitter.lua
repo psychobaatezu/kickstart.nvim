@@ -29,6 +29,10 @@ return {
       --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
       --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
       --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+
+      -- Set comment color
+      vim.api.nvim_set_hl(0, 'Comment', { fg = '#FF0000' })
+      vim.api.nvim_set_hl(0, '@comment', { link = 'Comment' })
     end,
   },
 }
