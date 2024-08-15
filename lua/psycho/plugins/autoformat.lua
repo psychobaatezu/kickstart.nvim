@@ -32,6 +32,7 @@ return {
         objcpp = { 'clang-format' },
         cuda = { 'clang-format' },
         proto = { 'clang-format' },
+        json = { 'jq' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
