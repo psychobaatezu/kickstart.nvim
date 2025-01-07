@@ -31,6 +31,8 @@ return {
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
+      vim.api.nvim_set_hl(0, 'LineNrAbove', { fg = '#585d70' })
+      vim.api.nvim_set_hl(0, 'LineNrBelow', { fg = '#585d70' })
     end,
   },
   -- Highlight todo, notes, etc in comments
