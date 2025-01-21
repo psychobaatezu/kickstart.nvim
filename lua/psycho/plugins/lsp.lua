@@ -149,6 +149,10 @@ return {
             map('<leader>rt', '<cmd>wa | !npx prettier -w ./src/**/*.tsx<CR>', '[R]un [T]ests')
             client.server_capabilities.documentFormattingProvider = false
             client.server_capabilities.documentRangeFormattingProvider = false
+          elseif client and client.name == 'gopls' then
+            map('<leader>rp', '<cmd>wa | !go run .<CR>', '[R]un [P]rogram')
+            map('<leader>rt', '<cmd>wa | !go test -v<CR>', '[R]un [T]ests')
+            vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
           end
         end,
       })
