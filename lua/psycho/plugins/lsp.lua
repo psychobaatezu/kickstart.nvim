@@ -140,8 +140,13 @@ return {
           -- The following autocommand is used to map specific keymaps
           -- to a language server type
           if client and client.name == 'clangd' then
-            map('<leader>rp', '<cmd>wa | make run && ./run<CR>', '[R]un [P]rogram')
-            map('<leader>rt', '<cmd>wa | make test && ./test/test<CR>', '[R]un [T]ests')
+            if vim.bo.filetype == 'c' then
+              map('<leader>rt', '<cmd>wa | make clean test<CR> | <cmd>!./all_tests.sh<CR>', '[R]un [T]ests')
+              map('<leader>mt', '<cmd>wa | make clean test<CR>', '[R]un [T]ests')
+            else
+              map('<leader>rp', '<cmd>wa | make run && ./run<CR>', '[R]un [P]rogram')
+              map('<leader>rt', '<cmd>wa | make test && ./test/test<CR>', '[R]un [T]ests')
+            end
           elseif client and client.name == 'bashls' then
             map('<leader>rp', '<cmd>wa | !./' .. vim.fn.expand '%:t' .. '<CR>', '[R]un [P]rogram')
           elseif client and client.name == 'tsserver' then
@@ -152,7 +157,6 @@ return {
           elseif client and client.name == 'gopls' then
             map('<leader>rp', '<cmd>wa | !go run .<CR>', '[R]un [P]rogram')
             map('<leader>rt', '<cmd>wa | !go test -v<CR>', '[R]un [T]ests')
-            vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
           end
         end,
       })
