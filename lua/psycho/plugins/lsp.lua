@@ -156,7 +156,8 @@ return {
             client.server_capabilities.documentRangeFormattingProvider = false
           elseif client and client.name == 'gopls' then
             map('<leader>rp', '<cmd>wa | !go run .<CR>', '[R]un [P]rogram')
-            map('<leader>rt', '<cmd>wa | !go test -v<CR>', '[R]un [T]ests')
+            map('<leader>rt', '<cmd>wa | !go test -count=1 ./...<CR>', '[R]un [T]ests')
+            vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
           end
         end,
       })

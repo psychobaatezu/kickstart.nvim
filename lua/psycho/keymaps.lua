@@ -1,9 +1,14 @@
 -- Makes :Q :W act as :q :w
 vim.api.nvim_create_user_command('WQ', 'wq', {})
 vim.api.nvim_create_user_command('Wq', 'wq', {})
+vim.api.nvim_create_user_command('WA', 'wa', {})
+vim.api.nvim_create_user_command('Wa', 'wa', {})
 vim.api.nvim_create_user_command('W', 'w', {})
 vim.api.nvim_create_user_command('Qa', 'qa', {})
 vim.api.nvim_create_user_command('Q', 'q', {})
+
+-- Close all buffers
+vim.keymap.set('n', '<leader>o', ':%bd|e#|bd#<cr>', { desc = 'Cl[O]se all buffers except current' })
 
 -- Clear search highlights on pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
